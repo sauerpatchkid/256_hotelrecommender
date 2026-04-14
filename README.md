@@ -44,10 +44,3 @@ Open the notebooks in Jupyter or VS Code and run them in the order listed above.
 
 - Python 3.10+
 - See `requirements.txt` for packages
-
-## Team
-
-- Matt
-- Jaswanthi
-- Shervan
-- Ashutosh
