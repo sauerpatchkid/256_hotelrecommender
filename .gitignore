@@ -1,0 +1,22 @@
+# Virtual environment
+venv/
+
+# DuckDB temp files
+duckdb_tmp/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Data files (too large for GitHub)
+*.db
+*.duckdb
+*.csv
+*.parquet
+data/
+
+# Phase 1 outputs (too large)
+phase1_outputs/
+
+# OS files
+.DS_Store
+Thumbs.db
