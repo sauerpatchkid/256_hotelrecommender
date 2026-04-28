@@ -37,7 +37,7 @@ A recommendation system built on the [HotelRec dataset](https://github.com/Diego
 
 | File | Description |
 |------|-------------|
-| *(notebooks)* | LLM-based recommendation approach — prompt-based or embedding-based hotel recommendation using a large language model |
+|  256_two_tower.ipynb | LLM-based recommendation approach — prompt-based or embedding-based hotel recommendation using a large language model |
 
 **Recommended run order:** explore → pipeline → popbaseline → `BaselineMF/` → `LightGCN/` (lightgcn → candidate gen → feature gen → reranker)
 
