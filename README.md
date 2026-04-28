@@ -4,22 +4,50 @@ A recommendation system built on the [HotelRec dataset](https://github.com/Diego
 
 ## Project Structure
 
+### Root — Exploration & Baselines
+
 | File | Description |
 |------|-------------|
 | `256groupproj_explore.ipynb` | Exploratory data analysis — rating distributions, user/item activity, sparsity, cold-start analysis, sub-rating breakdowns |
 | `256groupproj_pipeline.ipynb` | Data cleaning and preprocessing — deduplication, invalid user removal, temporal train/valid/test split, ID mapping, parquet export |
 | `256groupproj_popbaseline.ipynb` | Popularity-based baseline model — global popularity ranking evaluated with Hit@K and NDCG@K |
+
+### `BaselineMF/`
+
+| File | Description |
+|------|-------------|
 | `256groupproj_MFbaseline.ipynb` | Matrix factorization baseline — PyTorch embedding-based MF with bias terms, grid search tuning, RMSE evaluation |
 
-**Recommended run order:** explore → pipeline → popbaseline → MFbaseline
+### `LightGCN/`
+
+| File | Description |
+|------|-------------|
+| `lightgcn.ipynb` | LightGCN model — graph-based collaborative filtering on user-item interaction graph |
+| `reranker_candidate_generation.ipynb` | Generates top-K candidate hotels per user from LightGCN for downstream reranking |
+| `reranker_feature_generation.ipynb` | Engineers features for each user-candidate pair (LightGCN scores, aspect subratings, geo, popularity, etc.) |
+| `reranker_model.ipynb` | LambdaMART reranker — trains and evaluates the ranking model on generated features |
+
+### `SASRec/`
+
+| File | Description |
+|------|-------------|
+| `sasrec.ipynb` | SASRec model — self-attention based sequential recommender capturing user interaction history |
+
+### `LLM/`
+
+| File | Description |
+|------|-------------|
+| *(notebooks)* | LLM-based recommendation approach — prompt-based or embedding-based hotel recommendation using a large language model |
+
+**Recommended run order:** explore → pipeline → popbaseline → `BaselineMF/` → `LightGCN/` (lightgcn → candidate gen → feature gen → reranker)
 
 ## Getting Started
 
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-cd YOUR_REPO
+git clone https://github.com/sauerpatchkid/256_hotelrecommender.git
+cd 256_hotelrecommender
 ```
 
 ### 2. Set up environment
@@ -38,7 +66,7 @@ The HotelRec dataset is ~50GB and is not included in this repo. Download it from
 
 ### 4. Run the notebooks
 
-Open the notebooks in Jupyter or VS Code and run them in the order listed above. The exploration and pipeline notebooks use DuckDB to process the data without loading it all into memory. The pipeline notebook exports train/valid/test parquet files that the two model notebooks read in.
+Open the notebooks in Jupyter or VS Code and run them in the order listed above. The exploration and pipeline notebooks use DuckDB to process the data without loading it all into memory. The pipeline notebook exports train/valid/test parquet files that the model notebooks read in.
 
 ## Requirements
 
