@@ -1,0 +1,2 @@
+k,n_users_evaluated,n_neg,Hit@K,NDCG@K,Precision@K,avg_num_recs_returned
+10,1926837,100,0.07688299529228472,0.031598335785557465,0.007688299529228469,10.0
