@@ -1,0 +1,2 @@
+best_valid_score,hit@5,hit@10,hit@20,ndcg@5,ndcg@10,ndcg@20,test_hit@5,test_hit@10,test_hit@20,test_ndcg@5,test_ndcg@10,test_ndcg@20
+0.5607,0.6838,0.8143,0.9067,0.5183,0.5607,0.5843,0.672,0.8031,0.8983,0.5089,0.5515,0.5758

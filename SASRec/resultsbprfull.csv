@@ -1,0 +1,2 @@
+best_valid_score,valid_score_bigger,best_valid_result,test_result
+0.5607,True,"OrderedDict({'hit@5': 0.6838, 'hit@10': 0.8143, 'hit@20': 0.9067, 'ndcg@5': 0.5183, 'ndcg@10': 0.5607, 'ndcg@20': 0.5843})","OrderedDict({'hit@5': 0.672, 'hit@10': 0.8031, 'hit@20': 0.8983, 'ndcg@5': 0.5089, 'ndcg@10': 0.5515, 'ndcg@20': 0.5758})"

@@ -1,0 +1,54 @@
+data_path: /content/drive/MyDrive/
+
+use_gpu: True
+gpu_id: 0
+USER_ID_FIELD: user_id
+ITEM_ID_FIELD: item_id
+TIME_FIELD: timestamp
+
+load_col:
+  inter: [user_id, item_id, timestamp]
+
+MAX_ITEM_LIST_LENGTH: 30
+
+hidden_size: 64
+inner_size: 128
+n_layers: 2
+n_heads: 2
+
+epochs: 10
+train_batch_size: 4096
+learning_rate: 0.001
+
+eval_batch_size: 8192
+
+eval_step: 1
+stopping_step: 3
+
+topk: [5, 10, 20]
+metrics: ['Hit', 'NDCG']
+valid_metric: NDCG@10
+eval_args:
+  split: {'LS': 'valid_and_test'}
+  order: TO
+  group_by: user
+  mode:
+    valid: uni100
+    test: uni100
+
+loss_type: BPR
+train_neg_sample_args:
+  distribution: uniform
+  sample_num: 1
+
+eval_neg_sample_args:
+  distribution: uniform
+  sample_num: 100
+
+valid_neg_sample_args:
+  distribution: uniform
+  sample_num: 100
+
+test_neg_sample_args:
+  distribution: uniform
+  sample_num: 100
